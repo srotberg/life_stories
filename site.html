@@ -21,7 +21,7 @@
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  html, body { height: 100%; }
+  html, body { height: 100%; overflow-x: hidden; }
   body {
     font-family: 'Frank Ruhl Libre', 'Assistant', 'David', Georgia, serif;
     background: var(--cream);
@@ -55,7 +55,22 @@
     position: absolute; inset: 0;
     background: linear-gradient(180deg, rgba(46,30,19,.78), rgba(46,30,19,.62) 55%, rgba(46,30,19,.80));
   }
-  .hero .inner { position: relative; z-index: 2; }
+  .hero .inner {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: center;
+    gap: clamp(14px, 2.6vw, 34px);
+    flex-wrap: wrap;
+  }
+  .hero .portrait {
+    width: clamp(74px, 14vh, 148px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(253, 248, 238, .92);
+    box-shadow: 0 6px 20px rgba(0,0,0,.35);
+    flex-shrink: 0;
+  }
+  .hero .titles { flex: 0 1 auto; }
   .hero h1 {
     font-size: clamp(21px, min(4.6vw, 4.4vh), 44px);
     font-weight: 700;
@@ -146,6 +161,11 @@
   }
 
   @media (max-width: 640px) {
+    /* בטלפון – התמונה מעל הכותרת, לא לצידה */
+    .hero .inner { flex-direction: column; gap: clamp(6px, 1.2vh, 12px); }
+    .hero .portrait { width: clamp(56px, 9vh, 88px); border-width: 3px; }
+    .hero { padding-top: clamp(12px, 2.6vh, 26px); padding-bottom: clamp(12px, 2.6vh, 26px); }
+    .contact { padding-top: clamp(12px, 2.6vh, 30px); padding-bottom: clamp(12px, 2.6vh, 30px); }
     .story { padding-left: 16px; padding-right: 16px; }
     .pill { min-width: 0; width: 96%; }
   }
@@ -157,8 +177,11 @@
   <img class="photo" src="hero.jpg" alt="" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='banner.jpg'}else{this.remove()}">
   <div class="scrim"></div>
   <div class="inner">
-    <h1>סיפורי חיים וביוגרפיות – רינה רוטברג</h1>
-    <p>איך אתם רוצים שדורות ההמשך יזכרו אתכם?</p>
+    <img class="portrait" src="rina.jpg" alt="רינה רוטברג" onerror="this.remove()">
+    <div class="titles">
+      <h1>סיפורי חיים וביוגרפיות – רינה רוטברג</h1>
+      <p>איך אתם רוצים שדורות ההמשך יזכרו אתכם?</p>
+    </div>
   </div>
 </header>
 
@@ -178,7 +201,7 @@
     <!-- כשמסתיים המפגש – אפשר פשוט למחוק את הפסקה הזו -->
     <p class="note">
       הצטרפו אליי לזום למפגש הדרכה על כתיבה שיערך ב-6 לאוגוסט בשעה 19:00.
-      <a href="#">הרשמה כאן</a>.
+      <a href="https://bizlive.co.il/event/88184">הרשמה כאן</a>.
     </p>
 
   </div>
