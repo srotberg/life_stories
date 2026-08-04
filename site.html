@@ -177,8 +177,8 @@
   }
 
 
-  /* ====== מסכים נמוכים – מכווצים כדי שהכל ייכנס למסך אחד ====== */
-  @media (max-height: 720px) {
+  /* ====== מסכים נמוכים או צרים – מכווצים כדי שהכל ייכנס למסך אחד ====== */
+  @media (max-height: 720px), (max-width: 640px) {
     body { font-size: clamp(13px, 2.3vh, 17px); line-height: 1.6; }
     .hero { padding: clamp(10px, 2.4vh, 18px) 18px clamp(9px, 2.2vh, 16px); }
     .hero h1 { font-size: clamp(17px, min(4.4vw, 3.9vh), 26px); margin-bottom: 4px; }
