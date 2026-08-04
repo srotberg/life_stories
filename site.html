@@ -17,6 +17,7 @@
     --cream:       #FAF4E8;
     --card:        #FDF8EE;
     --ink:         #33291F;
+    --content-w:   min(780px, 94vw);   /* רוחב אחיד לטקסט ולכפתורים */
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -90,7 +91,7 @@
     flex: 1 1 auto;
     display: flex; align-items: center; justify-content: center;
   }
-  .story .inner { max-width: 780px; margin: 0 auto; }
+  .story .inner { width: 100%; max-width: var(--content-w); margin: 0 auto; }
   .story p { margin-bottom: clamp(8px, 2.1vh, 26px); }
   .story p:last-child { margin-bottom: 0; }
   .story a {
@@ -125,14 +126,18 @@
     color: #F6E7C9;
     margin-bottom: clamp(10px, 2.2vh, 26px);
   }
-  .pills { display: flex; flex-direction: column; align-items: center; gap: clamp(7px, 1.5vh, 15px); }
+  .pills {
+    display: flex; flex-direction: column; align-items: center;
+    gap: clamp(7px, 1.5vh, 15px);
+    width: 100%; max-width: var(--content-w); margin: 0 auto;
+  }
   .pill {
     display: inline-flex; align-items: center; justify-content: center; gap: 14px;
     background: var(--card); color: var(--brown-dark);
     text-decoration: none; font-weight: 700;
     font-size: clamp(17px, 2.95vh, 28px); padding: clamp(8px, 1.6vh, 15px) clamp(16px, 2.4vw, 28px);
     border-radius: 13px;
-    min-width: min(360px, 92vw); max-width: 94vw;
+    min-width: min(360px, 92vw); max-width: 100%;
     transition: background .15s ease, transform .15s ease;
   }
   .pill:hover { background: #F3E3C3; transform: translateY(-2px); }
@@ -184,10 +189,10 @@
     .hero h1 { font-size: clamp(17px, min(4.4vw, 3.9vh), 26px); margin-bottom: 4px; }
     .hero p  { font-size: clamp(12px, min(2.7vw, 2.4vh), 17px); }
     .hero .portrait { width: clamp(46px, 7.4vh, 64px); border-width: 3px; }
-    .story { padding: clamp(9px, 2vh, 18px) 16px; }
+    .story { padding: clamp(9px, 2vh, 18px) 0; }
     .story p { margin-bottom: clamp(6px, 1.4vh, 12px); }
     .note { padding: clamp(7px, 1.4vh, 12px) 12px; }
-    .contact { padding: clamp(9px, 2vh, 18px) 14px clamp(9px, 2vh, 18px); }
+    .contact { padding: clamp(9px, 2vh, 18px) 0 clamp(9px, 2vh, 18px); }
     .contact h2 { font-size: clamp(14px, min(3.4vw, 2.9vh), 20px); margin-bottom: clamp(6px, 1.3vh, 12px); }
     .pills { gap: clamp(5px, 1.1vh, 9px); }
     .pill { font-size: clamp(13px, 2.3vh, 18px); padding: clamp(6px, 1.2vh, 10px) 14px; border-radius: 11px; }
@@ -198,7 +203,7 @@
   }
 
   @media (min-width: 820px) {
-    .pills { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 14px; }
+    .pills { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 14px; max-width: none; }
     .pill { min-width: 0; }
   }
 
@@ -208,8 +213,7 @@
     .hero .portrait { width: clamp(56px, 9vh, 88px); border-width: 3px; }
     .hero { padding-top: clamp(12px, 2.6vh, 26px); padding-bottom: clamp(12px, 2.6vh, 26px); }
     .contact { padding-top: clamp(12px, 2.6vh, 30px); padding-bottom: clamp(12px, 2.6vh, 30px); }
-    .story { padding-left: 16px; padding-right: 16px; }
-    .pill { min-width: 0; width: 96%; }
+    .pill { min-width: 0; width: 100%; }
   }
 </style>
 </head>
