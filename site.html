@@ -135,7 +135,8 @@
     display: inline-flex; align-items: center; justify-content: center; gap: 14px;
     background: var(--card); color: var(--brown-dark);
     text-decoration: none; font-weight: 700;
-    font-size: clamp(17px, 2.95vh, 28px); padding: clamp(8px, 1.6vh, 15px) clamp(16px, 2.4vw, 28px);
+    font-size: clamp(17px, 2.95vh, 28px); padding: 0 clamp(16px, 2.4vw, 28px);
+    min-height: clamp(46px, 6.4vh, 64px);
     border-radius: 13px;
     min-width: min(360px, 92vw); max-width: 100%;
     transition: background .15s ease, transform .15s ease;
@@ -195,7 +196,7 @@
     .contact { padding: clamp(7px, 1.7vh, 15px) 0 clamp(7px, 1.7vh, 15px); }
     .contact h2 { font-size: clamp(13px, min(3.1vw, 2.6vh), 18px); margin-bottom: clamp(5px, 1.1vh, 10px); }
     .pills { gap: clamp(4px, .95vh, 8px); }
-    .pill { font-size: clamp(12.5px, 2.1vh, 17px); padding: clamp(5px, 1vh, 9px) 14px; border-radius: 11px; }
+    .pill { font-size: clamp(12.5px, 2.1vh, 17px); padding: 0 14px; min-height: clamp(36px, 5vh, 48px); border-radius: 11px; }
     .pill.mail { font-size: clamp(10.5px, 1.85vh, 15px); }
     .social { gap: clamp(5px, 1.1vh, 9px); margin-bottom: clamp(3px, .8vh, 7px); }
     .social a { width: clamp(23px, 3.4vh, 30px); border-width: 1.6px; }
